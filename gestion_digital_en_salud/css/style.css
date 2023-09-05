@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    /*background-image: url('img/Digitalizacion-sanidad.jpg'); /* Ruta de tu imagen inicial
+    background-size: cover;
+    background-position: center; */
+    height: 40px; /* Ajusta la altura de la imagen inicial según tus necesidades */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color:#235B4E;
+}
+
+header a {
+    text-decoration: none;
+    color: #DDC9A3;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    width: calc(20% - 20px); /* Ajusta el ancho de las tarjetas según tus necesidades */
+    background-color: rgb(221,201,163,0.15);
+    border: 2px solid #235B4E;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   
+}
+
+.card img {
+    max-width: 100%;
+    height: 50%;
+}
+
+footer {
+    background-color: #10312b;
+    color: rgb(152,152,153,0.5);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
