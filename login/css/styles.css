@@ -1,82 +1,183 @@
-body {
-    background-color: rgb(221, 201, 163,0.5);
-    font-family: Arial, sans-serif;
-    margin: 0;
+*{
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+
+body {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url(../img/aguil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
 }
 
 header {
     position: fixed;
     top: 0;
-    background-color: rgb(35, 91, 78);
+    left: 0;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     justify-content: space-between;
     color: rgb(16, 49, 43);
     width: 100%; /* Asegura que el encabezado ocupe todo el ancho */
+    align-items: center;
+    z-index: 99;
 }
+
 
 header a {
+    position: relative;
+    font-size: 1.1em;
+    color: #0a0a0a;
     text-decoration: none;
-    color: #DDC9A3;
-    
+    font-weight: 500;
+    margin-left:15px ; 
 }
 
-.login-container {
-    background-color: rgb(35, 91, 78);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+header a::after{
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom: -6px ;
+    width: 100%;
+    height: 3px;
+    background: #0c0c0c;
+    border-radius: 5px ;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+header a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+/* recuadro Bienvenido */
+.login-container1 {
+    display: flex;
+    border-radius: 50px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.742);
+    height: 500px;
+    width: 550PX;
+    max-width: 900px;
+    transition: all 1s ease;
+    margin: 10px;
+    border: transparent;
+
+}
+
+.information{
+width: 60%;
+display: flex;
+align-items: center;
+text-align: center;
+background-color: #691C32;
+border-top-left-radius: 50px;
+border-bottom-left-radius: 50px;
+
+}
+
+.info-childs{
+width: 100%;
+padding: 0 30px;
+
+}
+
+.information h2{
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.information p {
+    margin: 15px 0;
+    color:#ededed;
+}
+ /* Contenedor de iniciar sesion */
+.login-container{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 90%;
+text-align: center;
+border: transparent;
+}
+
+
+h5 {
+    font-size: 2em;
+    color: #121212;
+    font-family:fantasy;
     text-align: center;
-    color: rgb(16, 49, 43);
 }
 
+.input-container {
+    margin-bottom: 20px;
+    text-align: left;
+}
+/* boton */
 .login-form {
     display: flex;
     flex-direction: column;
 }
 
-h5 {
-    color: #DDC9A3;
-    margin: 0 0 20px;
-}
-
-.input-container {
-    margin-bottom: 10px;
-    text-align: left;
-}
-
+/* usuario/contraseña */
 label {
-    display: block;
-    color: #DDC9A3;
-    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    color: #1b1d1a;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    padding:0 10px ;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
 }
 
 input {
     padding: 10px;
-    border: none;
     border-radius: 5px;
-    background-color: rgb(152,152,154,0.6);
-    color: #DDC9A3;
+    background-color: rgba(244, 244, 244, 0.6);
+    outline: none;
+    border-radius: 50px;
+    color:#151414;
+    border-bottom: 1px solid #efefef;
+}
+
+input::after{
+    content: '';
+    position:absolute ;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100;
+    border-bottom: 3px solid #eaeaea;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+
 }
 
 button {
-    padding: 10px;
+    margin-top: 15px;
+    padding: 10px 10PX;
     border: none;
-    border-radius: 5px;
-    background-color: #235B4E;
-    color: #DDC9A3;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+    color: #000000;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: rgb(221,201,163,0.7);
-    color: #235B4E;
+    background-color: rgba(233, 180, 162, 0.7);
+    color:#9F2241
 }
 
 footer {
@@ -87,4 +188,18 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.fa-solid {
+    color:#000000;
+    font-size: 25px;
+}
+
+/* RESPONSIVE FORM */
+
+@media screen and  (max-width:750px){
+    html{
+        font-size: 12px;
+    }
+    
 }
