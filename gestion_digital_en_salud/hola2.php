@@ -20,6 +20,7 @@ if (!isset($_SESSION['valid_user'])) {
 </head>
 <body>
     <h1>hola esta es la pagina 2</h1>
+    <h2>prubea</h2>
     <form action="../php/logout.php" method="post">
         <input type="submit" value="Cerrar Sesión">
     </form>
