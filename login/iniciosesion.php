@@ -36,7 +36,7 @@
     </div>
 
     <div class="login-container">
-        <form class="login-form" id="login-form" action="login.php" method="post">
+        <form class="login-form" id="login_form">
             <h5>Iniciar Sesión</h5>
             <br>
         
@@ -50,7 +50,7 @@
             <i class="fa-solid fa-lock"></i>
             <input type="password" id="password" name="password" required placeholder="Password">
             </div>
-            <button type="submit">Iniciar Sesión</button>
+            <button type="submit" value="Enviar">Iniciar Sesión</button>
         </form>
         </div>
 
@@ -62,5 +62,12 @@
             <br> Gestión Digital en Salud - 2023
        </p> 
     </footer>
+        
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../js/login.js"></script>
+
+
+
 </body>
 </html>
