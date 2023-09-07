@@ -19,7 +19,7 @@ if (!isset($_SESSION['valid_user'])) {
     <title>Document</title>
 </head>
 <body>
-    <h1>hola esta es la pagina 1</h1>
+    <h1>hola esta es la pagina 2</h1>
     <form action="../php/logout.php" method="post">
         <input type="submit" value="Cerrar Sesión">
     </form>

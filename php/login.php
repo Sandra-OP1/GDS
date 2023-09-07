@@ -8,9 +8,7 @@
 
             $username = $_POST['username'];
             $password = $_POST['password'];
-
             $respuesta = $conn -> query("SELECT permiso.typetoken FROM users INNER JOIN permiso ON permiso.id_token = users.id_token WHERE username='$username' AND  password='$password'");
-
 
             if ($respuesta->num_rows > 0) {
                 // Si la consulta devuelve al menos una fila
@@ -18,19 +16,18 @@
                 $valor = $row['typetoken']; // Almacena el valor en la variable $valor
             } else {
                 // No se encontraron resultados
-                $valor = null; // Puedes establecer un valor predeterminado o manejar el caso de error de acuerdo a tus necesidades
+                $valor = null;
             }
+            session_start();
 
-            $respuestaJSON = json_encode($valor);
+            $_SESSION['username']=$username ;
 
-            // Imprime la respuesta codificada
+
             echo $valor;
         } else {
-            // Si uno o ambos campos están vacíos, devuelve un mensaje de error
             echo json_encode(array("error" => "Uno o ambos campos están vacíos."));
         }
     } else {
-        // Si no se ha recibido una solicitud POST, devuelve un mensaje de error
         echo json_encode(array("error" => "No se ha recibido una solicitud POST."));
     }
 ?>

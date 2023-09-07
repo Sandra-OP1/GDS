@@ -38,7 +38,7 @@
             <div class="card">
                 <img src="img/hepatitisc.jpg" alt="Imagen 2">
                 <br>
-                <a href="#" class="btn btn-success">Hepatitis C</a>
+                <a href="../login/iniciosesion.php" class="btn btn-success">Hepatitis C</a>
             </div>
             <div class="card">
                 <img src="img/paladarhendido.jpg" alt="Imagen 3">
