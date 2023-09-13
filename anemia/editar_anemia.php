@@ -1,3 +1,7 @@
+<?php
+    include('php/edit.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,59 +42,59 @@
             <div class="row">
                 <div class="col-md-4" id="idcurp"> 
                     <strong style="font-size: 14px;">CURP</strong>
-                    <input type="text" class="form-control" id="curp" placeholder="CURP" style="font-size: 13px;">
+                    <input type="text" class="form-control" id="curp" placeholder="CURP" value="<?php echo $curp; ?>" style="font-size: 13px;">
                 </div>
 
                 <div class="col-md-4" id="idnombre">
                     <strong style="font-size: 14px;">Nombre Completo</strong>
-                    <input id="nombre" name="nombre" onblur="calcularEdad();" type="text" class="control form-control" value="" style="font-size: 13px;" required>
+                    <input id="nombre" name="nombre" onblur="calcularEdad();" type="text" class="control form-control" value="<?php echo $nombre_paciente; ?>" style="font-size: 13px;" required>
                 </div>
 
                 <div class="col-md-4">
                     <strong style="font-size: 14px; background">Fecha de Nacimiento</strong>
-                    <input id="fecha" name="fecha" type="date" value="" onblur="curp2date();" class="control form-control" style="font-size: 13px;" readonly>
+                    <input id="fecha" name="fecha" type="date" value="<?php echo $fecha_nacimiento; ?>" onblur="curp2date();" class="control form-control" style="font-size: 13px;" readonly>
                 </div>
                 <div class="col-md-2">
                     <strong style="font-size: 14px;">Edad</strong>
-                    <input id="edad" name="edad" type="text" class="control form-control" value="" style="font-size: 13px;" readonly>
+                    <input id="edad" name="edad" type="text" class="control form-control" value="<?php echo $edad; ?>" style="font-size: 13px;" readonly>
                 </div>
 
                 <div class="col-md-2">
                     <strong style="font-size: 14px;">Sexo</strong>
-                    <input type="text" class="control form-control" id="sexo" onclick="curp2date();" name="sexo" style="font-size: 13px;" readonly>
+                    <input type="text" class="control form-control" id="sexo" onclick="curp2date();" name="sexo" value="<?php echo $sexo; ?>" style="font-size: 13px;" readonly>
                 </div>
 
 
                 <div class="col-md-4">
                     <strong style="font-size: 14px;">Altura Sobre Nivel del Mar</strong>
                     <select name="asnm" id="asnm" class="form-control" style="font-size: 13px;">
-                        <option value="Sin Registro">Sin Registro...</option>
-                        <option value="Al Nivel del Mar">Al Nivel del Mar</option>
-                        <option value="1000 msnm">1000 msnm</option>
-                        <option value="2000 msnm">2000 msnm</option>
-                        <option value="3000 msnm">3000 msnm</option>
-                        <option value="4000 msnm">4000 msnm</option>
+                        <option value="Sin Registro"<?php if ($asnm == 'Sin Registro') echo 'selected'; ?>>Sin Registro...</option>
+                        <option value="Al Nivel del Mar"<?php if ($asnm == 'Al Nivel del Mar') echo 'selected'; ?>>Al Nivel del Mar</option>
+                        <option value="1000 msnm"<?php if ($asnm == '1000 msnm') echo 'selected'; ?>>1000 msnm</option>
+                        <option value="2000 msnm"<?php if ($asnm == '2000 msnm') echo 'selected'; ?>>2000 msnm</option>
+                        <option value="3000 msnm"<?php if ($asnm == '3000 msnm') echo 'selected'; ?>>3000 msnm</option>
+                        <option value="4000 msnm"<?php if ($asnm == '4000 msnm') echo 'selected'; ?>>4000 msnm</option>
                     </select>
                 </div>
 
                 <div class="col-md-2">
                     <strong style="font-size: 14px;">Talla</strong>
-                    <input type="text" class="form-control" id="talla" name="talla" placeholder="Ejemplo: 1.50" style="font-size: 13px;" required>
+                    <input type="text" class="form-control" id="talla" name="talla" value="<?php echo $talla; ?>"placeholder="Ejemplo: 1.50" style="font-size: 13px;" required>
                 </div>
 
                 <div class="col-md-2">
                     <strong style="font-size: 14px;">Peso</strong>
-                    <input type="number" step="any" class="form-control" id="peso" onblur="calculaIMC();" name="peso" style="font-size: 13px;" required>
+                    <input type="number" step="any" class="form-control" id="peso" onblur="calculaIMC();" name="peso" value="<?php echo $peso; ?>" style="font-size: 13px;" required>
                 </div>
 
                 <div class="col-md-3">
                     <strong style="font-size: 14px;">IMC</strong>
-                    <input type="text" class="form-control" id="imc" onblur="calculaIMC();" name="imc" value="" style="font-size: 13px;" readonly>
+                    <input type="text" class="form-control" id="imc" onblur="calculaIMC();" name="imc" value="<?php echo $imc; ?>" style="font-size: 13px;" readonly>
                 </div>
 
                 <div class="col-md-3">
                     <strong style="font-size: 14px;">Resultado IMC</strong>
-                    <input type="text" class="form-control" id="imcdescripcion" name="imcdescripcion" value="" style="font-size: 13px;" readonly>
+                    <input type="text" class="form-control" id="imcdescripcion" name="imcdescripcion" value="<?php echo $resultadoimc; ?>" style="font-size: 13px;" readonly>
                 </div>
 
 <!-- ***********************************ATENCIÓN MÉDICA*********************************** -->
@@ -112,131 +116,131 @@
                 <div class="container">
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="TIP" value="TIP">
+                        <input class="form-check-input" type="checkbox" id="TIP" value="TIP" <?php if ($tip == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="TIP" style="font-size:14px;">TIP</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Cáncer" value="Cancer">
+                        <input class="form-check-input" type="checkbox" id="Cáncer" value="Cancer" <?php if ($cancer == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Cáncer" style="font-size:14px;">Cáncer</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Neumonia" value="Neumonia">
+                        <input class="form-check-input" type="checkbox" id="Neumonia" value="Neumonia"<?php if ($neumonia == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Neumonia" style="font-size:14px;">Neumonia</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="DrogasIV" value="Drogas IV">
+                        <input class="form-check-input" type="checkbox" id="DrogasIV" value="Drogas IV"<?php if ($drogasIV == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="DrogasIV" style="font-size:14px;">Drogas IV</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Eclampsia" value="Eclampsia">
+                        <input class="form-check-input" type="checkbox" id="Eclampsia" value="Eclampsia"<?php if ($eclampsia == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Eclampsia" style="font-size:14px;">Eclampsia</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Artropatía" value="Artropatia">
+                        <input class="form-check-input" type="checkbox" id="Artropatía" value="Artropatia"<?php if ($artropatia == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Artropatía" style="font-size:14px;">Artropatía</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="LESActivo" value="LESActivo">
+                        <input class="form-check-input" type="checkbox" id="LESActivo" value="LESActivo"<?php if ($les_activo == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="LESActivo" style="font-size:14px;">LES activo</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Miomatosis" value="Miomatosis">
+                        <input class="form-check-input" type="checkbox" id="Miomatosis" value="Miomatosis"<?php if ($miomatosis == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Miomatosis" style="font-size:14px;">Miomatosis</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Nefropatia" value="Nefropatia">
+                        <input class="form-check-input" type="checkbox" id="Nefropatia" value="Nefropatia"<?php if ($nefropatia == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Nefropatia" style="font-size:14px;">Nefropatía</label>
                     </div>
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Colelitiasis" value="Colelitiasis">
+                        <input class="form-check-input" type="checkbox" id="Colelitiasis" value="Colelitiasis"<?php if ($colelitiasis == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Colelitiasis" style="font-size:14px;">Colelitiasis</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="SxdeHELLP" value="SxdeHELLP">
+                        <input class="form-check-input" type="checkbox" id="SxdeHELLP" value="SxdeHELLP"<?php if ($sx_hellp == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="SxdeHELLP" style="font-size:14px;">Sx de HELLP</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="SxNefrotico" value="SxNefrotico">
+                        <input class="form-check-input" type="checkbox" id="SxNefrotico" value="SxNefrotico"<?php if ($sx_nefrotico == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="SxNefrotico" style="font-size:14px;">Sx Nefrótico</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Drepanocitica" value="Drepanocitica">
+                        <input class="form-check-input" type="checkbox" id="Drepanocitica" value="Drepanocitica"<?php if ($drepanocitica == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Drepanocitica" style="font-size:14px;">Drepanocítica</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Hipotiroidismo" value="Hipotiroidismo">
+                        <input class="form-check-input" type="checkbox" id="Hipotiroidismo" value="Hipotiroidismo"<?php if ($hipotiroidismo == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Hipotiroidismo" style="font-size:14px;">Hipotiroidismo</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Hipotiroidismo" value="Hipotiroidismo">
+                        <input class="form-check-input" type="checkbox" id="Hipotiroidismo" value="Hipotiroidismo"<?php if ($miastenia_gravis == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="Hipotiroidismo" style="font-size:14px;">Miastenia Gravis</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="RupturaEsplenica" value="RupturaEsplenica">
+                        <input class="form-check-input" type="checkbox" id="RupturaEsplenica" value="RupturaEsplenica"<?php if ($ruptura_esplenica == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="RupturaEsplenica" style="font-size:14px;">Ruptura esplénica</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="LESRenalAguda" value="LESRenalAguda">
+                        <input class="form-check-input" type="checkbox" id="LESRenalAguda" value="LESRenalAguda"<?php if ($lesion_renal == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="LESRenalAguda" style="font-size:14px;">Lesión renal aguda</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="EnfermedadesGraves" value="EnfermedadesGraves">
+                        <input class="form-check-input" type="checkbox" id="EnfermedadesGraves" value="EnfermedadesGraves"<?php if ($enferemedades_graves == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="EnfermedadesGraves" style="font-size:14px;">Enfermedades Graves</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="diabetesgestacional" value="DiabetesGestacional">
+                        <input class="form-check-input" type="checkbox" id="diabetesgestacional" value="DiabetesGestacional"<?php if ($diabetes_gestacional == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="diabetesgestacional" style="font-size:14px;">Diabetes Gestacional</label>
                     </div>
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="candilomatosisvalvular" value="candilomatosisvalvular">
+                        <input class="form-check-input" type="checkbox" id="candilomatosisvalvular" value="candilomatosisvalvular"<?php if ($condilomatosis_vulvar == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="candilomatosisvalvular" style="font-size:14px;">Condilomatosis vulvar</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="HASGestacional" value="HASGestacional">
+                        <input class="form-check-input" type="checkbox" id="HASGestacional" value="HASGestacional"<?php if ($canhipertension_gestacionalcer == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="HASGestacional" style="font-size:14px;">Hipertensión Gestacional</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="FallaCardiacaCardiopatia" value="FallaCardiacaCardiopatia">
+                        <input class="form-check-input" type="checkbox" id="FallaCardiacaCardiopatia" value="FallaCardiacaCardiopatia"<?php if ($falla_cardiaca == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="FallaCardiacaCardiopatia" style="font-size:14px;">Falla cardiaca/cardiopatía</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="InfeccionViasUrinarias" value="InfeccionViasUrinarias">
+                        <input class="form-check-input" type="checkbox" id="InfeccionViasUrinarias" value="InfeccionViasUrinarias"<?php if ($infeccion_vias == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="InfeccionViasUrinarias" style="font-size:14px;">Infección de vías urinarias</label>
                     </div>
 
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="DesequilibrioHidro" value="DesequilibrioHidroelectrolitico">
+                        <input class="form-check-input" type="checkbox" id="DesequilibrioHidro" value="DesequilibrioHidroelectrolitico"<?php if ($desequilibrio_hidro == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="DesequilibrioHidro" style="font-size:14px;">Desequilibrio Hidroelectrolítico</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="DesequilibrioHidro" value="DesequilibrioHidroelectrolitico">
+                        <input class="form-check-input" type="checkbox" id="DesequilibrioHidro" value="DesequilibrioHidroelectrolitico"<?php if ($ninguna == 1) echo "checked"; ?>>
                         <label class="form-check-label" for="DesequilibrioHidro" style="font-size:14px;">Ninguna de las anteriores</label>
                     </div>
 

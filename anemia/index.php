@@ -1,6 +1,17 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['valid_user'])) {
+    // El usuario no ha iniciado sesión, redirige de vuelta a la página de inicio de sesión
+    header('Location: ../login/iniciosesion.php');
+    exit;
+}
+$username = $_SESSION['valid_user'];
+?>
+<?php
 //llamado al modal de registrar paciente de anemia
 include("modals/registrarpaciente.php");
+include("php/dbconfig.php");
 ?>
 
 
@@ -55,281 +66,38 @@ include("modals/registrarpaciente.php");
                         <br>
                         <input type="text" id="search" placeholder="Buscar pacientes...">
                         <ul id="patient-list">
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Jesús Chico López
-                                    <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                               
-                            </li>
-                            <li class="patient-item">
-                                José Daniel Juárez Martínez
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
-                            <li class="patient-item">
-                                Nidia Sánchez Balderas uñltimo registro
-                                <a href="editar_anemia.php" >
-                                        <button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                        Editar
-                                        </button>
-                                    </a>
-                            </li>
+                        <?php
+
+                            $conn = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+                            // Consulta SQL
+                            $sql = "SELECT id_paciente, nombre_paciente FROM datos_paciente";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // Comienza a generar la lista de pacientes
+                                echo '<ul class="patient-list">';
+                                while ($row = $result->fetch_assoc()) {
+                                    $id_paciente = $row["id_paciente"];
+                                    $nombrePaciente = $row["nombre_paciente"];
+                                    
+                                    // Genera un elemento de lista para cada paciente
+                                    echo '<li class="patient-item">';
+                                    echo $nombrePaciente;
+                                    echo '<a href="editar_anemia.php?id=' . $id_paciente . '">';
+                                    echo '<button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Editar</button>';
+                                    echo '</a>';
+                                    echo '</li>';
+                                }
+                                echo '</ul>';
+                            } else {
+                                echo "No se encontraron pacientes.";
+                            }
+
+                            // Cierra la conexión a la base de datos
+                            $conn->close();
+                        ?>
+
                             <!-- Aquí debe ir el script para consultar los pacientes en la base de datos-->
                         </ul>
                     
@@ -369,6 +137,10 @@ include("modals/registrarpaciente.php");
 
     <script src="js/script.js"></script>
     <script src="js/scriptmodal.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/insert.js"></script>
+
 </body>
 </html>
 

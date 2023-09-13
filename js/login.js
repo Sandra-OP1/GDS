@@ -12,17 +12,16 @@ $('#login_form').on('submit', function(e) {
         url: '../php/login1.php',
         data: formData,
         success: function(response) {   
-
+            console.log("Response from server: " + response);
             if (response === "anemia") {
                 Swal.fire({
                     icon: 'success',
                     title: 'Éxito',
                     text: 'La operación se ha completado correctamente.',
-                    showConfirmButton: false,
-                    timer: 1500,
+                    showConfirmButton: true,
                     onClose: function() {
                         // Redireccionar a una página después de que se cierre la alerta
-                        window.location.href = '../gestion_digital_en_salud/hola.php';
+                        window.location.href = '../anemia/index.php';
                     }
                 });
             } else if (response === "hepatitisc"){
@@ -34,7 +33,7 @@ $('#login_form').on('submit', function(e) {
                     timer: 1500,
                     onClose: function() {
                         // Redireccionar a una página después de que se cierre la alerta
-                        window.location.href = '../gestion_digital_en_salud/hola2.php';
+                        window.location.href = '#';
                     }
                 });
             }else {

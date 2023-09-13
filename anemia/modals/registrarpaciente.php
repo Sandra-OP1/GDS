@@ -11,7 +11,7 @@
     </div>
       <div class="modal-body">
          <!--En la siguiente línea de código se realiza la incersión en la BD-->
-         <form action=" " method="POST" autocomplete="off">
+         <form id="anemia_form" autocomplete="off">
 
             <div style="background-color: rgb(154,34,65,0.85);
                         color: aliceblue;
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-md-4" id="idcurp"> 
                     <strong style="font-size: 14px;">CURP</strong>
-                    <input type="text" class="form-control" id="curp" placeholder="CURP" style="font-size: 13px;">
+                    <input type="text" class="form-control" id="curp" name="curp" placeholder="CURP" style="font-size: 13px;">
                 </div>
 
                 <div class="col-md-4" id="idnombre">
@@ -97,132 +97,132 @@
                 <div class="container">
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="TIP" value="TIP">
+                        <input class="form-check-input" type="checkbox" id="TIP" name="TIP" value="TIP">
                         <label class="form-check-label" for="TIP" style="font-size:14px;">TIP</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Cáncer" value="Cancer">
+                        <input class="form-check-input" type="checkbox" id="Cáncer" name="Cáncer" value="Cancer">
                         <label class="form-check-label" for="Cáncer" style="font-size:14px;">Cáncer</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Neumonia" value="Neumonia">
+                        <input class="form-check-input" type="checkbox" id="Neumonia" name="Neumonia" value="Neumonia">
                         <label class="form-check-label" for="Neumonia" style="font-size:14px;">Neumonia</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="DrogasIV" value="Drogas IV">
+                        <input class="form-check-input" type="checkbox" id="DrogasIV" name="DrogasIV" value="Drogas IV">
                         <label class="form-check-label" for="DrogasIV" style="font-size:14px;">Drogas IV</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Eclampsia" value="Eclampsia">
+                        <input class="form-check-input" type="checkbox" id="Eclampsia" name="Eclampsia" value="Eclampsia">
                         <label class="form-check-label" for="Eclampsia" style="font-size:14px;">Eclampsia</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Artropatía" value="Artropatia">
+                        <input class="form-check-input" type="checkbox" id="Artropatía" name="Artropatía" value="Artropatia">
                         <label class="form-check-label" for="Artropatía" style="font-size:14px;">Artropatía</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="LESActivo" value="LESActivo">
+                        <input class="form-check-input" type="checkbox" id="LESActivo" name="LESActivo" value="LESActivo">
                         <label class="form-check-label" for="LESActivo" style="font-size:14px;">LES activo</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Miomatosis" value="Miomatosis">
+                        <input class="form-check-input" type="checkbox" id="Miomatosis" name="Miomatosis" value="Miomatosis">
                         <label class="form-check-label" for="Miomatosis" style="font-size:14px;">Miomatosis</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Nefropatia" value="Nefropatia">
+                        <input class="form-check-input" type="checkbox" id="Nefropatia" name="Nefropatia" value="Nefropatia">
                         <label class="form-check-label" for="Nefropatia" style="font-size:14px;">Nefropatía</label>
                     </div>
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Colelitiasis" value="Colelitiasis">
+                        <input class="form-check-input" type="checkbox" id="Colelitiasis" name="Colelitiasis" value="Colelitiasis">
                         <label class="form-check-label" for="Colelitiasis" style="font-size:14px;">Colelitiasis</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="SxdeHELLP" value="SxdeHELLP">
+                        <input class="form-check-input" type="checkbox" id="SxdeHELLP" name="SxdeHELLP" value="SxdeHELLP">
                         <label class="form-check-label" for="SxdeHELLP" style="font-size:14px;">Sx de HELLP</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="SxNefrotico" value="SxNefrotico">
+                        <input class="form-check-input" type="checkbox" id="SxNefrotico" name="SxNefrotico" value="SxNefrotico">
                         <label class="form-check-label" for="SxNefrotico" style="font-size:14px;">Sx Nefrótico</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Drepanocitica" value="Drepanocitica">
+                        <input class="form-check-input" type="checkbox" id="Drepanocitica" name="Drepanocitica" value="Drepanocitica">
                         <label class="form-check-label" for="Drepanocitica" style="font-size:14px;">Drepanocítica</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Hipotiroidismo" value="Hipotiroidismo">
+                        <input class="form-check-input" type="checkbox" id="Hipotiroidismo" name="Hipotiroidismo" value="Hipotiroidismo">
                         <label class="form-check-label" for="Hipotiroidismo" style="font-size:14px;">Hipotiroidismo</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="Hipotiroidismo" value="Hipotiroidismo">
-                        <label class="form-check-label" for="Hipotiroidismo" style="font-size:14px;">Miastenia Gravis</label>
+                        <input class="form-check-input" type="checkbox" id="Miastenia" name="Miastenia" value="Miastenia">
+                        <label class="form-check-label" for="Miastenia" style="font-size:14px;">Miastenia Gravis</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="RupturaEsplenica" value="RupturaEsplenica">
+                        <input class="form-check-input" type="checkbox" id="RupturaEsplenica" name="RupturaEsplenica" value="RupturaEsplenica">
                         <label class="form-check-label" for="RupturaEsplenica" style="font-size:14px;">Ruptura esplénica</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="LESRenalAguda" value="LESRenalAguda">
+                        <input class="form-check-input" type="checkbox" id="LESRenalAguda" name="LESRenalAguda" value="LESRenalAguda">
                         <label class="form-check-label" for="LESRenalAguda" style="font-size:14px;">Lesión renal aguda</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="EnfermedadesGraves" value="EnfermedadesGraves">
+                        <input class="form-check-input" type="checkbox" id="EnfermedadesGraves" name="EnfermedadesGraves" value="EnfermedadesGraves">
                         <label class="form-check-label" for="EnfermedadesGraves" style="font-size:14px;">Enfermedades Graves</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="diabetesgestacional" value="DiabetesGestacional">
+                        <input class="form-check-input" type="checkbox" id="diabetesgestacional" name="diabetesgestacional" value="DiabetesGestacional">
                         <label class="form-check-label" for="diabetesgestacional" style="font-size:14px;">Diabetes Gestacional</label>
                     </div>
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="candilomatosisvalvular" value="candilomatosisvalvular">
+                        <input class="form-check-input" type="checkbox" id="candilomatosisvalvular" name="candilomatosisvalvular" value="candilomatosisvalvular">
                         <label class="form-check-label" for="candilomatosisvalvular" style="font-size:14px;">Condilomatosis vulvar</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="HASGestacional" value="HASGestacional">
+                        <input class="form-check-input" type="checkbox" id="HASGestacional" name="HASGestacional" value="HASGestacional">
                         <label class="form-check-label" for="HASGestacional" style="font-size:14px;">Hipertensión Gestacional</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="FallaCardiacaCardiopatia" value="FallaCardiacaCardiopatia">
+                        <input class="form-check-input" type="checkbox" id="FallaCardiacaCardiopatia" name="FallaCardiacaCardiopatia" value="FallaCardiacaCardiopatia">
                         <label class="form-check-label" for="FallaCardiacaCardiopatia" style="font-size:14px;">Falla cardiaca/cardiopatía</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="InfeccionViasUrinarias" value="InfeccionViasUrinarias">
+                        <input class="form-check-input" type="checkbox" id="InfeccionViasUrinarias" name="InfeccionViasUrinarias" value="InfeccionViasUrinarias">
                         <label class="form-check-label" for="InfeccionViasUrinarias" style="font-size:14px;">Infección de vías urinarias</label>
                     </div>
 
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="DesequilibrioHidro" value="DesequilibrioHidroelectrolitico">
+                        <input class="form-check-input" type="checkbox" id="DesequilibrioHidro" name="DesequilibrioHidro" value="DesequilibrioHidroelectrolitico">
                         <label class="form-check-label" for="DesequilibrioHidro" style="font-size:14px;">Desequilibrio Hidroelectrolítico</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="DesequilibrioHidro" value="DesequilibrioHidroelectrolitico">
-                        <label class="form-check-label" for="DesequilibrioHidro" style="font-size:14px;">Ninguna de las anteriores</label>
+                        <input class="form-check-input" type="checkbox" id="ninguno" name ="ninguno"value="ninguno">
+                        <label class="form-check-label" for="ninguno" style="font-size:14px;">Ninguna de las anteriores</label>
                     </div>
 
                 </div>
@@ -272,30 +272,30 @@
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Hemoglobina pre </strong>
-    <input type="number" id="" name="" class="form-control" style="font-size: 13px;">
+    <input type="number" id="pre_Hemoglobina" name="pre_Hemoglobina" class="form-control" style="font-size: 13px;">
 </div>
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Vitamina B12 pre  </strong>
-        <input type="number" id="" name="" class="form-control" style="font-size: 13px;">
+        <input type="number" id="pre_b12" name="pre_b12" class="form-control" style="font-size: 13px;">
     </select>
 </div>
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Ferritina pre </strong>
-    <input type="number" id="" name="" class="form-control"  style="font-size: 13px;">
+    <input type="number" id="pre_ferritina" name="pre_ferritina" class="form-control"  style="font-size: 13px;">
     </select>
 </div>
 
 <div class="col-md-4">
     <strong  style="font-size: 14px;">Cálculo deficiencia de hierro pre </strong>
-    <input type="number" id="" name="" class="form-control"  style="font-size: 13px;">
+    <input type="number" id="pre_calculo" name="pre_calculo" class="form-control"  style="font-size: 13px;">
     </select>
 </div>
 
 <div class="col-md-4">
     <strong  style="font-size: 14px;">Tratamiento con hierro pre </strong>
-    <select name="tratamientohierro" id="tratamientohierro" class="form-control"  style="font-size: 13px;">
+    <select name="pre_tratamientohierro" id="pre_tratamientohierro" class="form-control"  style="font-size: 13px;">
         <option value="Sin registro">Sin registro</option>
         <option value="Si">Sí</option>
         <option value="No">No</option>
@@ -397,7 +397,7 @@
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Solución infundida </strong>
-    <select name="solucioninfundida" id="solucioninfundida" class="form-control" style="font-size: 13px;">
+    <select name="pre_solucioninfundida" id="pre_solucioninfundida" class="form-control" style="font-size: 13px;">
         <option value="Sin registro">Sin registro</option>
         <option value="Cloruro de Sodio">Cloruro de Sodio</option>
         <option value="Hartmann">Hartmann</option>
@@ -424,44 +424,44 @@
    
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input ra-checkbox" type="checkbox" id="cefaleaRA" value="cefalea">
+        <input class="form-check-input ra-checkbox" type="checkbox" id="cefaleaRA" name="cefaleaRA" value="cefalea">
         <label class="form-check-label" for="cefalea" style="font-size: 14px;">Cefalea</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input ra-checkbox" type="checkbox" id="nauseasRA" value="nauseas">
+        <input class="form-check-input ra-checkbox" type="checkbox" id="nauseasRA" name="nauseasRA" value="nauseas">
         <label class="form-check-label" for="nauseas" style="font-size: 14px;">Náuseas</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input ra-checkbox" type="checkbox" id="hipertensionRA" value="hipertension">
+        <input class="form-check-input ra-checkbox" type="checkbox" id="hipertensionRA" name="hipertensionRA" value="hipertension">
         <label class="form-check-label" for="hipertension" style="font-size: 14px;">Hipertensión</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input ra-checkbox" type="checkbox" id="hipotensionRA" value="hipotension">
+        <input class="form-check-input ra-checkbox" type="checkbox" id="hipotensionRA" name="hipotensionRA" value="hipotension">
         <label class="form-check-label" for="hipotension" style="font-size: 14px;">Hipotensión</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input ra-checkbox" type="checkbox" id="taquicardiaRA" value="taquicardia">
+        <input class="form-check-input ra-checkbox" type="checkbox" id="taquicardiaRA" name="taquicardiaRA" value="taquicardia">
         <label class="form-check-label" for="taquicardia" style="font-size: 14px;">Taquicardia</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input ra-checkbox" type="checkbox" id="bradicardiaRA" value="bradicardia">
+        <input class="form-check-input ra-checkbox" type="checkbox" id="bradicardiaRA" name="bradicardiaRA" value="bradicardia">
         <label class="form-check-label" for="bradicardia" style="font-size: 14px;">Bradicardia</label>
     </div>
 
     
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input ra-checkbox" type="checkbox" id="otroRA" value="otro">
+        <input class="form-check-input ra-checkbox" type="checkbox" id="otroRA" name="otroRA" value="otro">
         <label class="form-check-label" for="otro" style="font-size: 14px;">Otro</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="ningunaRA" value="ningunara">
+        <input class="form-check-input" type="checkbox" id="ningunaRA" name="ningunaRA" value="ningunara">
         <label class="form-check-label" for="ningunara" style="font-size: 14px;">Ninguna</label>
     </div>
 </div>
@@ -601,12 +601,12 @@
 <br>
     <div id="checkboxes-container" style="display: none;">
         <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="ninguncomponente" value="ninguna">
+                <input class="form-check-input" type="checkbox" id="ninguncomponente" name="ninguncomponente" value="ninguna">
                 <label class="form-check-label" for="ninguncomponente">Ninguno</label>
             </div>
     
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="plasma" value="plasma">
+                <input class="form-check-input" type="checkbox" id="plasma" name="plasma" value="plasma">
                 <label class="form-check-label" for="plasma">Plasma</label>
             </div>
        
@@ -616,7 +616,7 @@
             </div>
         
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="plaquetas" value="plaquetas">
+                <input class="form-check-input" type="checkbox" id="plaquetas" name="plaquetas" value="plaquetas">
                 <label class="form-check-label" for="plaquetas">Plaquetas</label>
             </div>
 
@@ -626,7 +626,7 @@
             </div>
 
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="Crioprecipitados" value="crioprecipitados">
+                <input class="form-check-input" type="checkbox" id="Crioprecipitados" name="Crioprecipitados" value="crioprecipitados">
                 <label class="form-check-label" for="Crioprecipitados">Crioprecipitados</label>
             </div>
 
@@ -636,7 +636,7 @@
             </div>
 
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="PaqueteGlobular" value="paqueteglobular">
+                <input class="form-check-input" type="checkbox" id="PaqueteGlobular" name="PaqueteGlobular" value="paqueteglobular">
                 <label class="form-check-label" for="PaqueteGlobular">Paquete Globular</label>
             </div>
 
@@ -663,28 +663,28 @@
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Hemoglobina post </strong>
-    <input type="number" id="" name="" class="form-control" style="font-size: 13px;">
+    <input type="number" id="post_hemo" name="post_hemo" class="form-control" style="font-size: 13px;">
 </div>
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Vitamina B12 post</strong>
-    <input type="number" id="" name="" class="form-control" style="font-size: 13px;">
+    <input type="number" id="post_b12" name="post_b12" class="form-control" style="font-size: 13px;">
 </div>
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Ferritina post </strong>
-    <input type="number" id="" name="" class="form-control" style="font-size: 13px;">
+    <input type="number" id="post_ferretina" name="post_ferretina" class="form-control" style="font-size: 13px;">
 </div>
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Cálculo Deficiencia de hierro</strong>
-    <input type="number" id="" name="" class="form-control" style="font-size: 13px;">
+    <input type="number" id="post_calculo" name="post_calculo" class="form-control" style="font-size: 13px;">
     </select>
 </div>
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Tratamiento con hierro </strong>
-    <select name="tratamientohierro" id="tratamientohierro" class="form-control" style="font-size: 13px;">
+    <select id="post_tratamientohierro" name="post_tratamientohierro" class="form-control" style="font-size: 13px;">
         <option value="Sin registro">Sin registro</option>
         <option value="Si">Sí</option>
         <option value="No">No</option>
@@ -793,7 +793,7 @@
 
 <div class="col-md-4">
     <strong style="font-size: 14px;">Solución infundida post</strong>
-    <select name="solucioninfundida" id="solucioninfundida" class="form-control" style="font-size: 13px;">
+    <select name="post_solucioninfundida" id="post_solucioninfundida" class="form-control" style="font-size: 13px;">
         <option value="Sin registro">Sin registro</option>
         <option value="Cloruro de Sodio">Cloruro de Sodio</option>
         <option value="Hartmann">Hartmann</option>
@@ -817,42 +817,42 @@
 
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="cefaleaRApost" value="cefalea">
+        <input class="form-check-input" type="checkbox" id="cefaleaRApost" name="cefaleaRApost" value="cefalea">
         <label class="form-check-label" for="cefaleaRApost">Cefalea</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="nauseasRApost" value="nauseas">
+        <input class="form-check-input" type="checkbox" id="nauseasRApost" name="nauseasRApost" value="nauseas">
         <label class="form-check-label" for="nauseasRApost">Náuseas</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="hipertensionRApost" value="hipertension">
+        <input class="form-check-input" type="checkbox" id="hipertensionRApost" name="hipertensionRApost" value="hipertension">
         <label class="form-check-label" for="hipertensionRApost">Hipertensión</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="hipotensionRApost" value="hipotension">
+        <input class="form-check-input" type="checkbox" id="hipotensionRApost" name="hipotensionRApost" value="hipotension">
         <label class="form-check-label" for="hipotensionRApost">Hipotensión</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="taquicardiaRApost" value="taquicardia">
+        <input class="form-check-input" type="checkbox" id="taquicardiaRApost" name="taquicardiaRApost" value="taquicardia">
         <label class="form-check-label" for="taquicardiaRApost">Taquicardia</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="bradicardiaRApost" value="bradicardia">
+        <input class="form-check-input" type="checkbox" id="bradicardiaRApost" name="bradicardiaRApost" value="bradicardia">
         <label class="form-check-label" for="bradicardiaRApost">Bradicardia</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="otroRApost" value="otro">
+        <input class="form-check-input" type="checkbox" id="otroRApost" name="otroRApost" value="otro">
         <label class="form-check-label" for="otroRApost">Otro</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="ningunaRApost" value="ninguna">
+        <input class="form-check-input" type="checkbox" id="ningunaRApost" name="ningunaRApost" value="ninguna">
         <label class="form-check-label" for="ningunaRApost">Ninguna</label>
     </div>
 
@@ -874,7 +874,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success">Guardar Cambios</button>
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
       </div>
     </div>
   </div>
