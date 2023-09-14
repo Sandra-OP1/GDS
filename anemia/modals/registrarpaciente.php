@@ -221,7 +221,7 @@
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="ninguno" name ="ninguno"value="ninguno">
+                        <input class="form-check-input" type="checkbox" id="ninguno" name ="ninguno" value="ninguno">
                         <label class="form-check-label" for="ninguno" style="font-size:14px;">Ninguna de las anteriores</label>
                     </div>
 
@@ -874,7 +874,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
       </div>
     </div>
   </div>

@@ -4,7 +4,9 @@
     if (!$conn) {
         die("Error en la conexion a la base de datos" . mysqli_connect_error());
     }
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $id_paciente  = $_POST["id_paciente"];
         $curp = $_POST['curp'];
         $nombre = $_POST['nombre'];
         $fecha_nacimiento = $_POST['fecha'];
@@ -16,12 +18,21 @@
         $imc = $_POST['imc'];
         $imcdescripcion = $_POST['imcdescripcion'];
 
-        $data_paciente = "INSERT INTO datos_paciente 
-        (curp,nombre_paciente,fecha_nacimiento,edad,sexo,asnm,talla,peso,imc,resultadoimc)
-        VALUES('$curp','$nombre','$fecha_nacimiento','$edad','$sexo','$asnm','$talla','$peso','$imc','$imcdescripcion')" ;
+        $data_paciente = "UPDATE datos_paciente SET
+            curp = '$curp',
+            nombre_paciente = '$nombre',
+            fecha_nacimiento = '$fecha_nacimiento',
+            edad = '$edad',
+            sexo = '$sexo',
+            asnm = '$asnm',
+            talla = '$talla',
+            peso = '$peso',
+            imc = '$imc',
+            resultadoimc = '$imcdescripcion'
+        WHERE id_paciente='$id_paciente'" ;
+        
 
         mysqli_query($conn,$data_paciente);
-        $last_id = mysqli_insert_id($conn);
 
 
         $TIP = isset($_POST['TIP']) ? 1 : 0;
@@ -50,18 +61,45 @@
         $DesequilibrioHidro = isset($_POST['DesequilibrioHidro']) ? 1 : 0;
         $ninguno = isset($_POST['ninguno']) ? 1 : 0;
 
-        $data_conmorbilidades = "INSERT INTO conmorbilidades VALUES ('$TIP','$Cáncer','$Neumonia','$DrogasIV','$Eclampsia',
-        '$Artropatía','$LESActivo','$Miomatosis','$Nefropatia','$Colelitiasis','$SxdeHELLP','$SxNefrotico','$Drepanocitica',
-        '$Hipotiroidismo','$Miastenia','$RupturaEsplenica','$LESRenalAguda','$EnfermedadesGraves','$diabetesgestacional',
-        '$candilomatosisvalvular','$HASGestacional','$FallaCardiacaCardiopatia','$InfeccionViasUrinarias','$DesequilibrioHidro',
-        '$ninguno','$last_id');";
+        $data_conmorbilidades = "UPDATE conmorbilidades
+        SET
+            tip = '$TIP',
+            cancer = '$Cáncer',
+            neumonia = '$Neumonia',
+            drogasIV = '$DrogasIV',
+            eclampsia = '$Eclampsia',
+            artropatia = '$Artropatía',
+            les_activo = '$LESActivo',
+            miomatosis = '$Miomatosis',
+            nefropatia = '$Nefropatia',
+            colelitiasis = '$Colelitiasis',
+            sx_hellp = '$SxdeHELLP',
+            sx_nefrotico = '$SxNefrotico',
+            drepanocitica = '$Drepanocitica',
+            hipotiroidismo = '$Hipotiroidismo',
+            miastenia_gravis = '$Miastenia',
+            ruptura_esplenica = '$RupturaEsplenica',
+            lesion_renal = '$LESRenalAguda',
+            enferemedades_graves = '$EnfermedadesGraves',
+            diabetes_gestacional = '$diabetesgestacional',
+            condilomatosis_vulvar = '$candilomatosisvalvular',
+            hipertension_gestacional = '$HASGestacional',
+            falla_cardiaca = '$FallaCardiacaCardiopatia',
+            infeccion_vias = '$InfeccionViasUrinarias',
+            desequilibrio_hidro = '$DesequilibrioHidro',
+            ninguna = '$ninguno'
+        WHERE id_paciente = '$id_paciente';";
 
         mysqli_query($conn,$data_conmorbilidades);
 
 
         $Embarazo = $_POST['Embarazo'];
         $Puerperio = $_POST['Puerperio'];
-        $data_antencionMedica = "INSERT INTO atencion_medica VALUES ('$Embarazo','$Puerperio','$last_id');";
+        $data_antencionMedica = "UPDATE atencion_medica
+        SET
+            embarazo = '$Embarazo',
+            puerperio = '$Puerperio'
+        WHERE id_paciente = '$id_paciente';";
         mysqli_query($conn,$data_antencionMedica);
 
         $pre_Hemoglobina = $_POST['pre_Hemoglobina'];
@@ -82,9 +120,26 @@
         $medicamento = $_POST['medicamento'];
         $pre_solucioninfundida = $_POST['pre_solucioninfundida'];
 
-        $data_preHierro = "INSERT INTO pre_hierro VALUES ('$pre_Hemoglobina','$pre_b12','$pre_ferritina','$pre_calculo','$pre_tratamientohierro','$sacaratoferrico',
-        '$dosisscaratoferrico','$nodosissfpre','$carboximaltosaferrica','$dosiscarboximaltosaferrica','$nocarboximaltosaferrica','$hierrodextrano','$dosishierro',
-        '$nodosishierro','$premedicacion','$medicamento','$pre_solucioninfundida','$last_id');";
+        $data_preHierro = "UPDATE pre_hierro
+        SET
+            pre_hemoglobina = '$pre_Hemoglobina',
+            pre_b12 = '$pre_b12',
+            pre_ferretina = '$pre_ferritina',
+            pre_calculoDeficiencia = '$pre_calculo',
+            pre_tratamiento = '$pre_tratamientohierro',
+            pre_sacarato = '$sacaratoferrico',
+            dosis_sacarato = '$dosisscaratoferrico',
+            numero_dosisSacarato = '$nodosissfpre',
+            pre_carboximaltosa = '$carboximaltosaferrica',
+            dosis_carboximaltosa = '$dosiscarboximaltosaferrica',
+            numero_dosisCarboximaltosa = '$nocarboximaltosaferrica',
+            pre_dextrano = '$hierrodextrano',
+            dosis_dextrano = '$dosishierro',
+            numero_dosisDextrano = '$nodosishierro',
+            premeditacion = '$premedicacion',
+            medicamento = '$medicamento',
+            solucion_infundida = '$pre_solucioninfundida'
+        WHERE id_paciente = '$id_paciente';";
 
         mysqli_query($conn,$data_preHierro);
 
@@ -99,8 +154,18 @@
         $ningunaRA =isset($_POST['ningunaRA'])? 1 : 0;
         $reaccionadversa =isset($_POST['reaccionadversa'])? 1 : 0;
 
-        $data_preReaccion = "INSERT INTO reacciones_previas VALUES ('$cefaleaRA','$nauseasRA','$hipertensionRA','$hipotensionRA','$taquicardiaRA',
-        '$bradicardiaRA','$otroRA','$ningunaRA','$reaccionadversa','$last_id');";
+        $data_preReaccion = "UPDATE reacciones_previas
+        SET
+            pre_cefalea = '$cefaleaRA',
+            pre_nauseas = '$nauseasRA',
+            pre_hipertension = '$hipertensionRA',
+            pre_hipotension = '$hipotensionRA',
+            pre_taquicardia = '$taquicardiaRA',
+            pre_bradicardia = '$bradicardiaRA',
+            pre_otro = '$otroRA',
+            pre_ninguna = '$ningunaRA',
+            pre_grado_reaccion = '$reaccionadversa'
+        WHERE id_paciente = '$id_paciente';";
 
         mysqli_query($conn,$data_preReaccion);
 
@@ -124,9 +189,28 @@
         $PaqueteGlobular = isset($_POST['PaqueteGlobular'])? 1 : 0;
         $componentePG = $_POST['componentePG'];
 
-        $data_qx = "INSERT INTO procedimiento_qx VALUES ('$cirugia','$fechacirugia','$hemoglobinapre','$cesarea','$fechacesarea','$HemorragiaMasiva',
-        '$cantidadsangrado','$Hemorragia','$Complicaciones','$Transfusion','$ninguncomponente','$plasma','$componenteplasma','$plaquetas','$componenteplaquetas',
-        '$Crioprecipitados','$componentescrioprecipitados','$PaqueteGlobular','$componentePG','$last_id');";
+        $data_qx = "UPDATE procedimiento_qx
+        SET
+            cirugia = '$cirugia',
+            fecha_cirugia = '$fechacirugia',
+            pre_qxHemoglobina = '$hemoglobinapre',
+            cesarea = '$cesarea',
+            fecha_cesarea = '$fechacesarea',
+            hemorragia_masiva = '$HemorragiaMasiva',
+            cantidad_sangrado = '$cantidadsangrado',
+            hemorragia = '$Hemorragia',
+            complicasiones = '$Complicaciones',
+            transfusiones = '$Transfusion',
+            ninguna_transfusion = '$ninguncomponente',
+            plasma = '$plasma',
+            no_plasma = '$componenteplasma',
+            plaquetas = '$plaquetas',
+            no_plaquetas = '$componenteplaquetas',
+            crioprecipitado = '$Crioprecipitados',
+            no_crioprecipitado = '$componentescrioprecipitados',
+            plaqueta_globular = '$PaqueteGlobular',
+            no_plaqueta_globular = '$componentePG'
+        WHERE id_paciente = '$id_paciente';";
 
         mysqli_query($conn,$data_qx);
 
@@ -149,10 +233,27 @@
         $medicamentopost = $_POST['medicamentopost'];
         $post_solucioninfundida = $_POST['post_solucioninfundida'];
 
-        $data_postHierro = "INSERT INTO post_hierro VALUES ('$post_hemo','$post_b12','$post_ferretina','$post_calculo','$post_tratamientohierro',
-        '$tratamientoviaoral','$sacaratoferricopost','$dosisscaratoferricopost','$nodosissacaratoferricopost','$carboximaltosaferricapost',
-        '$dosiscarboximaltosaferricapost','$nocarboximaltosaferricapost','$hierrodextranopost','$dosishierropost','$nodosishierropost','$premedicacionpost',
-        '$medicamentopost','$post_solucioninfundida','$last_id');";
+        $data_postHierro = "UPDATE post_hierro
+        SET
+            post_hemoglobina = '$post_hemo',
+            post_b12 = '$post_b12',
+            post_ferretina = '$post_ferretina',
+            post_calculoDeficiencia = '$post_calculo',
+            post_tratamiento = '$post_tratamientohierro',
+            tratamiento_oral = '$tratamientoviaoral',
+            post_sacarato = '$sacaratoferricopost',
+            post_dosis_sacarato = '$dosisscaratoferricopost',
+            post_numero_dosisSacarato = '$nodosissacaratoferricopost',
+            post_carboximaltosa = '$carboximaltosaferricapost',
+            post_dosis_carboximaltosa = '$dosiscarboximaltosaferricapost',
+            post_numero_dosisCarboximaltosa = '$nocarboximaltosaferricapost',
+            post_dextrano = '$hierrodextranopost',
+            post_dosis_dextrano = '$dosishierropost',
+            post_numero_dosisDextrano = '$nodosishierropost',
+            post_premeditacion = '$premedicacionpost',
+            post_medicamento = '$medicamentopost',
+            post_solucion_infundida = '$post_solucioninfundida'
+        WHERE id_paciente = '$id_paciente';";
 
         mysqli_query($conn,$data_postHierro);
 
@@ -166,8 +267,19 @@
         $ningunaRApost =isset($_POST['ningunaRApost']) ? 1 : 0;
         $reaccionadversapost = $_POST['reaccionadversapost'];
 
-        $data_postReacciones = "INSERT INTO reacciones_posteriores VALUES ('$cefaleaRApost','$nauseasRApost','$hipertensionRApost','$hipotensionRApost',
-        '$taquicardiaRApost','$bradicardiaRApost','$otroRApost','$ningunaRApost','$reaccionadversapost','$last_id');";
+        $data_postReacciones = "UPDATE reacciones_posteriores
+        SET
+            post_cefalea = '$cefaleaRApost',
+            post_nauseas = '$nauseasRApost',
+            post_hipertension = '$hipertensionRApost',
+            post_hipotension = '$hipotensionRApost',
+            post_taquicardia = '$taquicardiaRApost',
+            post_bradicardia = '$bradicardiaRApost',
+            post_otro = '$otroRApost',
+            post_ninguna = '$ningunaRApost',
+            post_grado_reaccion = '$reaccionadversapost'
+        WHERE id_paciente = '$id_paciente';";
+
 
         mysqli_query($conn,$data_postReacciones);
 
@@ -175,6 +287,5 @@
         echo 'success'; // Éxito en la inserción
 
         mysqli_close($conn);
-
     }
 ?>
