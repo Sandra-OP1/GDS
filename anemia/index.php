@@ -76,13 +76,13 @@ include("php/dbconfig.php");
 
                             if ($result->num_rows > 0) {
                                 // Comienza a generar la lista de pacientes
-                                echo '<ul class="patient-list">';
+                                echo '<ul class="patient-list" >';
                                 while ($row = $result->fetch_assoc()) {
                                     $id_paciente = $row["id_paciente"];
                                     $nombrePaciente = $row["nombre_paciente"];
                                     
                                     // Genera un elemento de lista para cada paciente
-                                    echo '<li class="patient-item">';
+                                    echo '<li class="patient-item" data-id-paciente="' . $id_paciente . '">';
                                     echo $nombrePaciente;
                                     echo '<a href="editar_anemia.php?id=' . $id_paciente . '">';
                                     echo '<button type="button" class="btn btn-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Editar</button>';
@@ -110,7 +110,7 @@ include("php/dbconfig.php");
 
     <div class="col-7">
         <div class="container">
-            <iframe src="consulta.php" frameborder="0" width="100%" height="800px" style="margin-bottom: 100px;"></iframe>
+            <iframe id="consulta" src="consulta.php" frameborder="0" width="100%" height="800px" style="margin-bottom: 100px;"></iframe>
 
         </div> <!--<div class="container">-->
     </div><!-- FINALIZA EL DIV class col 8-->
@@ -140,6 +140,8 @@ include("php/dbconfig.php");
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/insert.js"></script>
+    <script src="js/visualizacion.js"></script>
+
 
 </body>
 </html>
